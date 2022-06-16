@@ -3,7 +3,7 @@ const Zhuguang = formatMessage => ({
         id: 'zhuguang.name',
         default: 'Candle Light'
     }),
-    deviceId: 'Zhuguang_arduinoESP32QDP',
+    deviceId: 'Zhuguang_arduinoEsp32',
     manufactor: '',
     learnMore: 'https://www.stvs.org.cn/c/2021-05-11/3178367.shtml',
     iconURL: 'asset/zhuguang.png',
