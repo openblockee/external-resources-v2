@@ -187,12 +187,12 @@ function addBlocks (Blockly) {
                     },
                     {
                         type: 'field_dropdown',
-                        name: 'PIN2',
-                        options: [["ON", "1"],["OFF", "0"]]
+                        name: 'LOCATION',
+                        options: [[Blockly.Msg.gray_left,'1'],[Blockly.Msg.gray_right,'2']]
                     },
                     {
                         type: 'field_dropdown',
-                        name: 'PIN3',
+                        name: 'STATE',
                         options: [["ON", "1"],["OFF", "0"]]
                     }
                 ],
@@ -200,154 +200,6 @@ function addBlocks (Blockly) {
                 colour: color_c02_sensor,
                 colourTertiary: '#C0C0C0',
                 extensions: ['output_boolean']
-            });
-        }
-    };
-
-    //光线
-    Blockly.Blocks.qdp_esp32_lightSensor = {
-        init: function () {
-            this.jsonInit({
-                message0: '%1',
-                message1: Blockly.Msg.qdp_esp32_lightSensor,
-                args0: [
-                    {
-                        type: 'field_image',
-                        src: QH_lightSensor_ICO,
-                        width: 40,
-                        height: 40
-                    }
-                ],
-                args1: [
-                    {
-                        type: 'field_dropdown',
-                        name: 'PIN',
-                        options: qdprobotESP32_L2_PIN_Input_Dropdown
-                    }
-                ],
-                "tooltip": "对光线强弱的感应，返回对应的模拟数值，\n亮数值变大，暗数值变小",
-                colour: color_c02_sensor,
-                colourTertiary: '#C0C0C0',
-                extensions: ['output_number']
-            });
-        }
-    };
-
-    //声音
-    Blockly.Blocks.qdp_esp32_sound = {
-        init: function () {
-            this.jsonInit({
-                message0: '%1',
-                message1: Blockly.Msg.qdp_esp32_sound,
-                args0: [
-                    {
-                        type: 'field_image',
-                        src: QH_sound_ICO,
-                        width: 40,
-                        height: 40
-                    }
-                ],
-                args1: [
-                    {
-                        type: 'field_dropdown',
-                        name: 'PIN',
-                        options: qdprobotESP32_R2_PIN_Input_Dropdown
-                    }
-                ],
-                "tooltip": "对声音大小的感应，返回对应的模拟数值，\n周边噪声大值变大，相反变小",
-                colour: color_c02_sensor,
-                colourTertiary: '#C0C0C0',
-                extensions: ['output_number']
-            });
-        }
-    };
-
-    // RGB
-    Blockly.Blocks.rgb_esp32_led = {
-        init: function () {
-            this.jsonInit({
-                message0: '%1',
-                message1: Blockly.Msg.rgb_esp32_led,
-                args0: [
-                    {
-                        type: 'field_image',
-                        src: QH_RGB_ICO,
-                        width: 40,
-                        height: 40
-                    }
-                ],
-                args1: [
-                    {
-                        type: 'field_dropdown',
-                        name: 'PIN1',
-                        options: qdprobotESP32_R_PIN_Output_Dropdown
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'num8'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'num1'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'R'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'G'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'B'
-                    }
-                ],
-                "tooltip": "RGB对应灯号颜色的值，灯号共4个，总灯数跟模块灯数相同，0为全部同时工作\n对应的值是代表第几个灯的，最大255，0为关",
-                colour: QH_Actuator_color,
-                colourTertiary: '#C0C0C0',
-                extensions: ['shape_statement']
-            });
-        }
-    };
-
-    // RGB2
-    Blockly.Blocks.rgb_esp32_led2 = {
-        init: function () {
-            this.jsonInit({
-                message0: '%1',
-                message1: Blockly.Msg.rgb_esp32_led2,
-                args0: [
-                    {
-                        type: 'field_image',
-                        src: QH_RGB_ICO,
-                        width: 40,
-                        height: 40
-                    }
-                ],
-                args1: [
-                    {
-                        type: 'field_dropdown',
-                        name: 'PIN1',
-                        options: qdprobotESP32_R_PIN_Output_Dropdown
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'num8'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'num1'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'colour'
-                    }
-                ],
-                "tooltip": "灯号共4个，总灯数跟模块灯数相同，0为全部同时工作",
-                colour: QH_Actuator_color,
-                colourTertiary: '#C0C0C0',
-                extensions: ['shape_statement']
             });
         }
     };
@@ -441,48 +293,25 @@ function addBlocks (Blockly) {
                 args1: [
                     {
                         type: 'field_dropdown',
+                        name: 'tire',
+                        options: [
+                            [Blockly.Msg.tire_all, '1'],
+                            [Blockly.Msg.tire_left, '2'],
+                            [Blockly.Msg.tire_right, '3']
+                        ]
+                    },
+                    {
+                        type: 'field_dropdown',
                         name: 'action',
                         options: [
                             [Blockly.Msg.Car_Forward, '1'],
                             [Blockly.Msg.Car_Backward, '2'],
-                            [Blockly.Msg.Car_TurnLeft, '3'],
-                            [Blockly.Msg.Car_TurnRight, '4']
+                            [Blockly.Msg.Car_Stop, '3']
                         ]
                     },
                     {
                         type: 'input_value',
                         name: 'speed'
-                    }
-                ],
-                "tooltip": "",
-                colour: QH_Actuator_color,
-                colourTertiary: '#C0C0C0',
-                extensions: ['shape_statement']
-            });
-        }
-    }
-
-    Blockly.Blocks.qdp_esp32_carAround = {
-        init: function () {
-            this.jsonInit({
-                message0: '%1',
-                message1: Blockly.Msg.qdp_esp32_carAround,
-                args0: [
-                    {
-                        type: 'field_image',
-                        src: QH_CAR_ICO,
-                        width: 40,
-                        height: 40
-                    }
-                ],
-                args1: [
-                    {
-                        type: 'input_value',
-                        name: 'speedLeft'
-                    },
-                    {
-                        type: 'input_value',
-                        name: 'speedRight'
                     }
                 ],
                 "tooltip": "",

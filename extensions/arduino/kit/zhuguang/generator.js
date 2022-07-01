@@ -56,78 +56,20 @@ function addGenerator (Blockly) {
   // 巡线
   Blockly.Arduino.qdp_esp32_grayscale = function() {
     var dropdown_pin = this.getFieldValue('PIN');
-    var dropdown_pin3 = this.getFieldValue('PIN2');
-    var dropdown_pin4 = this.getFieldValue('PIN3');
+    var location = this.getFieldValue('LOCATION');
+    var state = this.getFieldValue('STATE');
     Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
-    Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode(P'+dropdown_pin+'L, INPUT);\n  pinMode(P'+dropdown_pin+'R, INPUT);';
-    var code = '(digitalRead(P'+dropdown_pin+'L) == '+dropdown_pin3+')&&(digitalRead(P'+dropdown_pin+'R) == '+dropdown_pin4+')';
+
+    var code
+    if (location === '1') {
+      Blockly.Arduino.setups_['setup_input_L'+dropdown_pin] = 'pinMode(P'+dropdown_pin+'L, INPUT);\n';
+      code = '(digitalRead(P'+dropdown_pin+'L) == '+state+')';
+    } else if (location === '2') {
+      Blockly.Arduino.setups_['setup_input_R'+dropdown_pin] = 'pinMode(P'+dropdown_pin+'R, INPUT);\n';
+      code = '(digitalRead(P'+dropdown_pin+'R) == '+state+')';
+    }
+    
     return [code, Blockly.Arduino.ORDER_ATOMIC];
-  };
-
-  // 光线
-  Blockly.Arduino.qdp_esp32_lightSensor = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
-    Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
-    var code = 'analogRead('+dropdown_pin+')';
-    return [code, Blockly.Arduino.ORDER_ATOMIC];
-  };
-
-  // 声音
-  Blockly.Arduino.qdp_esp32_sound = function() {
-    var dropdown_pin = this.getFieldValue('PIN');
-    Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
-    var code = 'analogRead('+dropdown_pin+')';
-    return [code, Blockly.Arduino.ORDER_ATOMIC];
-  };
-
-  Blockly.Arduino.rgb_esp32_led = function() {
-    var pin1 = this.getFieldValue('PIN1');
-    var lednum = Blockly.Arduino.valueToCode(this, 'rgblednum', Blockly.Arduino.ORDER_ATOMIC);
-    var NUM=Blockly.Arduino.valueToCode(this, 'num1', Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var R=Blockly.Arduino.valueToCode(this, 'R', Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var G=Blockly.Arduino.valueToCode(this, 'G', Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var B=Blockly.Arduino.valueToCode(this, 'B', Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var NUM8=Blockly.Arduino.valueToCode(this, 'num8', Blockly.Arduino.ORDER_ATOMIC) || '0';
-
-    Blockly.Arduino.definitions_['include_Adafruit_NeoPixel'] = '#include <Adafruit_NeoPixel.h>';
-    Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
-
-    Blockly.Arduino.definitions_['var_declare_var_rgb_display' + pin1] = 'Adafruit_NeoPixel QDPRGBLED_' + pin1 + '=Adafruit_NeoPixel('+ NUM8 +','+pin1+',NEO_GRB + NEO_KHZ800);';
-    Blockly.Arduino.setups_['setup_rgb_display_setpin' + pin1] = 'QDPRGBLED_' + pin1 + '.begin();\n  QDPRGBLED_'+ pin1 +'.show();\n';
-
-    if(NUM=='0')
-    {
-      var code = 'for (int ik = 0; ik < '+NUM8+'; ik++)\nQDPRGBLED_' + pin1 + '.setPixelColor(ik,'+R+','+G+','+B+');\nQDPRGBLED_'+ pin1 + '.show();\nQDPRGBLED_'+ pin1 + '.show();\ndelay(1);\n';
-    }
-    else
-    {
-      var code = 'QDPRGBLED_' + pin1 + '.setPixelColor('+NUM+'-1,'+R+','+G+','+B+');\nQDPRGBLED_'+ pin1 + '.show();\nQDPRGBLED_'+ pin1 + '.show();\ndelay(1);\n';
-    }
-    return code;
-  };
-
-  Blockly.Arduino.rgb_esp32_led2 = function() {
-    var pin1 = this.getFieldValue('PIN1');
-    var lednum = Blockly.Arduino.valueToCode(this, 'rgblednum', Blockly.Arduino.ORDER_ATOMIC);
-    var NUM=Blockly.Arduino.valueToCode(this, 'num1', Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var color = Blockly.Arduino.valueToCode(this, 'colour', Blockly.Arduino.ORDER_ATOMIC).replace('#', '0x');
-    var NUM8=Blockly.Arduino.valueToCode(this, 'num8', Blockly.Arduino.ORDER_ATOMIC) || '0';
-
-    Blockly.Arduino.definitions_['include_Adafruit_NeoPixel'] = '#include <Adafruit_NeoPixel.h>';
-    Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
-
-    Blockly.Arduino.definitions_['var_declare_var_rgb_display' + pin1] = 'Adafruit_NeoPixel QDPRGBLED_' + pin1 + '=Adafruit_NeoPixel('+ NUM8 +','+pin1+',NEO_GRB + NEO_KHZ800);';
-    Blockly.Arduino.setups_['setup_rgb_display_setpin' + pin1] = 'QDPRGBLED_' + pin1 + '.begin();\n  QDPRGBLED_'+ pin1 +'.show();\n';
-
-    if(NUM=='0')
-    {
-      var code = 'for (int ik = 0; ik < '+NUM8+'; ik++)\nQDPRGBLED_' + pin1 + '.setPixelColor(ik,'+color+');\nQDPRGBLED_'+ pin1 + '.show();\nQDPRGBLED_'+ pin1 + '.show();\ndelay(1);\n';
-    }
-    else
-    {
-      var code = 'QDPRGBLED_' + pin1 + '.setPixelColor('+NUM+'-1,'+color+');\nQDPRGBLED_'+ pin1 + '.show();\nQDPRGBLED_'+ pin1 + '.show();\ndelay(1);\n';
-    }
-    return code;
   };
 
   //舵机360
@@ -160,32 +102,32 @@ function addGenerator (Blockly) {
   };
 
   Blockly.Arduino.qdp_esp32_carMove = function() {
+    var tire = this.getFieldValue('tire');
     var action = this.getFieldValue('action');
     var speed = Blockly.Arduino.valueToCode(this, 'speed',Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var code;
-    if (action == '1') {
-      code = 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, '+speed+'));\n';
-      code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, '+speed+'));\n';
+    var code = '';
+    if (action === '1') {
+      if (tire === '1' || tire === '2') {
+        code += 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, '+speed+'));\n';
+      }
+      if (tire === '1' || tire === '3') {
+        code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, '+speed+'));\n';
+      }
     } else if (action == '2') {
-      code = 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(0, '+speed+'));\n';
-      code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(1, '+speed+'));\n';
+      if (tire === '1' || tire === '2') {
+        code += 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(0, '+speed+'));\n';
+      }
+      if (tire === '1' || tire === '3') {
+        code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(1, '+speed+'));\n';
+      }
     } else if (action == '3') {
-      code = 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, 0));\n';
-      code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, '+speed+'));\n';
-    } else if (action == '4') {
-      code = 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, '+speed+'));\n';
-      code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, 0));\n';
+      if (tire === '1' || tire === '2') {
+        code += 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, 0));\n';
+      }
+      if (tire === '1' || tire === '3') {
+        code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, 0));\n';
+      }
     }
-    
-    return code;
-  };
-
-  Blockly.Arduino.qdp_esp32_carAround = function() {
-    var speedLeft = Blockly.Arduino.valueToCode(this, 'speedLeft',Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var speedRight = Blockly.Arduino.valueToCode(this, 'speedRight',Blockly.Arduino.ORDER_ATOMIC) || '0';
-    var code;
-    code = 'QDPservo_Left.writeMicroseconds(QDPServoPulseWith1(1, '+speedLeft+'));\n';
-    code += 'QDPservo_Right.writeMicroseconds(QDPServoPulseWith1(0, '+speedRight+'));\n';
     
     return code;
   };

@@ -53,7 +53,12 @@
         "ultrasonic.name": "Ultrasonic",
         "ultrasonic.description": "Standard ultrasonic distance measurement module.",
         "servo.name": "Servo",
-        "servo.description": "Classic servo support for microbit."
+        "servo.description": "Classic servo support for microbit.",
+        "lightVoiceSensor.name": "Sound and light module",
+        "lightVoiceSensor.description": "A module include sound and light sensor.",
+        "rgbModule.name": "RGB module",
+        "rgbModule.description": "A module include 4 RGB Light."
+        
     },
     "zh-cn": {
         "chineseTTS.name": "中文 TTS",
@@ -109,7 +114,11 @@
         "ultrasonic.name": "超声波",
         "ultrasonic.description": "标准的超声波测距传感器模块。",
         "servo.name": "舵机",
-        "servo.description": "让 Microbit 可以控制普通的舵机。"
+        "servo.description": "让 Microbit 可以控制普通的舵机。",
+        "lightVoiceSensor.name": "声光模块",
+        "lightVoiceSensor.description": "一个包含声音和光线传感器的模块。",
+        "rgbModule.name": "RGB模块",
+        "rgbModule.description": "一个包含4个RGB灯的模块。"
     },
     "zh-tw": {
         "chineseTTS.name": "中文 TTS",
@@ -165,6 +174,10 @@
         "ultrasonic.name": "超聲波",
         "ultrasonic.description": "標準的超聲波測距傳感器模塊。",
         "servo.name": "舵機",
-        "servo.description": "讓 Microbit 可以控制普通的舵機。"
+        "servo.description": "讓 Microbit 可以控制普通的舵機。",
+        "lightVoiceSensor.name": "聲光模組",
+        "lightVoiceSensor.description": "一個包含聲音和光線感測器的模組。",
+        "rgbModule.name": "RGB模組",
+        "rgbModule.description": "一個包含4個RGB燈的模組。"
     }
 }

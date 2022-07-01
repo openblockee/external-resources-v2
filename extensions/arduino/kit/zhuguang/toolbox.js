@@ -13,74 +13,9 @@ function addToolbox () {
             </shadow>
         </value>
     </block>
-    <block type="qdp_esp32_carAround">
-        <value name="speedLeft">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-        <value name="speedRight">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-    </block>    
     <label text="%{BKY_QH_SENSOR_LABEL}"></label>   
     <block type="qdp_esp32_chaoshengboSerial"></block>
     <block type="qdp_esp32_grayscale"></block>
-    <block type="qdp_esp32_lightSensor"></block>
-    <block type="qdp_esp32_sound"></block>
-    <label text="---RGB---"></label>
-    <block type="rgb_esp32_led">
-        <value name="num8">
-            <shadow type="math_number">
-                <field name="NUM">4</field>
-            </shadow>
-        </value>
-        <value name="num1">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-        <value name="R">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-        <value name="G">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-        <value name="B">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="rgb_esp32_led2">
-        <value name="num8">
-            <shadow type="math_number">
-                <field name="NUM">4</field>
-            </shadow>
-        </value>
-        <value name="num1">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-        <value name="colour">
-            <shadow type="colour_picker"/>
-        </value>
-    </block>
-    <label text="%{BKY_QH_SERVO_LABEL}"></label>
-    <block type="qdp_esp32_servomotor360">
-        <value name="num1">
-            <shadow type="math_number">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
-    </block>
     <label text="%{BKY_QH_IR_LABEL}"></label>
     <block type="qdp_esp32_ir_re2"></block>
     <block type="qdp_ESP32_ir_recv_raw"></block>
