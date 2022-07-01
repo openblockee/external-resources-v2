@@ -4,6 +4,7 @@ function addMsg (Blockly) {
     Object.assign(Blockly.ScratchMsgs.locales.en, {
         ZHG_EDUCATION_CATEGORY:'Candle Light Car',
         QH_SENSOR_LABEL:'---SENSOR---',
+        qdp_esp32_buttonl:'Press the button Port %1',
         qdp_esp32_chaoshengboSerial:'QH Utrasonic ranging %1 Port %2',
         qdp_esp32_grayscale:'single gray patrol Port %1 %2 %3',
         gray_left: 'Left',
@@ -33,6 +34,7 @@ function addMsg (Blockly) {
     Object.assign(Blockly.ScratchMsgs.locales['zh-cn'], {
         ZHG_EDUCATION_CATEGORY:'烛光小车',
         QH_SENSOR_LABEL:'---传感器---',
+        qdp_esp32_buttonl:'按下按键 端口 %1',
         qdp_esp32_chaoshengboSerial:'QH 超声波测距 %1 端口 %2',
         qdp_esp32_grayscale:'单灰度巡线 端口 %1 %2 %3',
         gray_left: '左路',
@@ -61,6 +63,7 @@ function addMsg (Blockly) {
     Object.assign(Blockly.ScratchMsgs.locales["zh-tw"], {
         ZHG_EDUCATION_CATEGORY:'燭光小車',
         QH_SENSOR_LABEL:'---感測器---',
+        qdp_esp32_buttonl:'按下按鍵 端口 %1',
         qdp_esp32_chaoshengboSerial:'QH 超聲波測距 %1 端口 %2',
         qdp_esp32_grayscale:'單灰度巡線 端口 %1 %2 %3',
         gray_left: '左路',

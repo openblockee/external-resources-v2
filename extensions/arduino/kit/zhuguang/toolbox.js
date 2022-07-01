@@ -13,7 +13,8 @@ function addToolbox () {
             </shadow>
         </value>
     </block>
-    <label text="%{BKY_QH_SENSOR_LABEL}"></label>   
+    <label text="%{BKY_QH_SENSOR_LABEL}"></label>
+    <block type="qdp_esp32_buttonl"></block> 
     <block type="qdp_esp32_chaoshengboSerial"></block>
     <block type="qdp_esp32_grayscale"></block>
     <label text="%{BKY_QH_IR_LABEL}"></label>

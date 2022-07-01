@@ -2,6 +2,15 @@
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
 function addGenerator (Blockly) {
+  //按钮
+  Blockly.Arduino.qdp_esp32_buttonl = function() {
+    var dropdown_pin = this.getFieldValue('PIN');
+    Blockly.Arduino.definitions_['define_QDPEsp32Port'] = '#include <QDPEsp32Port.h>';
+    Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
+    var code = 'digitalRead('+dropdown_pin+')';
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+  };
+  
   //超声波Serial
   Blockly.Arduino.qdp_esp32_chaoshengboSerial = function() {
     var dropdown_pin = this.getFieldValue('PIN');
