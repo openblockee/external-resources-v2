@@ -1,5 +1,6 @@
 module.exports = [
     // Buid-in device
+    'magicLogicBLE',
     'arduinoUno',
     'arduinoNano',
     'arduinoLeonardo',
@@ -18,9 +19,5 @@ module.exports = [
     'k210Maixduino',
     'arduinoK210Maixduino',
     'microPythonK210Maixduino',
-    'makeyMakey',
-    // Third party
-    'deviceDemo_esp32',
-    'deviceDemo_arduinoEsp32',
-    'deviceDemo_microPythonEsp32'
+    'makeyMakey'
 ];
