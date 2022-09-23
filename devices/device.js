@@ -1,6 +1,8 @@
 module.exports = [
     // Buid-in device
-    'magicLogicBLE',
+    'magicLogicBLE01',
+    'magicLogicBLE02',
+    'magicLogicBLE04',
     'arduinoUno',
     'arduinoNano',
     'arduinoLeonardo',
