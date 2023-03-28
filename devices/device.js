@@ -3,6 +3,7 @@ module.exports = [
     'magicLogicBLE01',
     'magicLogicBLE02',
     'magicLogicBLE04',
+    'magicLogicBLE05_magicLogicBLE05',
     'arduinoUno',
     'arduinoNano',
     'arduinoLeonardo',

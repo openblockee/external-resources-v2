@@ -1,10 +1,12 @@
 {
     "en": {
         "deviceDemo.name": "Third Party Device Demo",
-        "deviceDemo.description": "An example showing how to add a third-party board."
+        "deviceDemo.description": "An example showing how to add a third-party board.",
+        "arduinoMagicLogicBLE05.description": "Classic programmable controller, has good scalability."
     },
     "zh-cn": {
         "deviceDemo.name": "第三方设备演示",
-        "deviceDemo.description": "演示如何添加第三方控制板的示例。"
+        "deviceDemo.description": "演示如何添加第三方控制板的示例。",
+        "magicLogicBLE05.description": "经典的可编程控制器, 拥有非常好的扩展性。"
     }
 }
