@@ -53,6 +53,29 @@ function addMsg (Blockly) {
 		interrupMode_low: '低电平'
     });
 	Object.assign(Blockly.ScratchMsgs.locales["zh-tw"], {
+		CADA_BLE05_CATEGORY: '基礎',
+		BLE05_setPinMode: '設置引腳 %1 模式為 %2',
+		modeMenu_input: '輸入',
+		modeMenu_output: '輸出',
+		modeMenu_inputPullup: '輸入上拉',
+		BLE05_setPinOutput: '設置引腳 %1 輸出為 %2',
+		levelMenu_high: '高',
+		levelMenu_low: '低',
+		BLE05_setPwmOutput: '設置端口 %1 脈衝為 %2',
+		BLE05_setServoOutput: '設置端口 %1 舵機為 %2',
+		BLE05_setLEDState: '設置狀態燈輸出為 %1',
+		BLE05_readDigitalPin: '讀取引腳 %1 數字量',
+		BLE05_readButtonState: '當按鈕 %1 被按下',
+		button_left: '左',
+		button_center: '中',
+		button_right: '右',
+		BLE05_readAnalogPort: '讀取端口 %1 模擬量',
+		BLE05_attachInterrupt: '設置中斷引腳 %1 模式 %2 執行',
+		BLE05_detachInterrupt: '取消中斷引腳 %1',
+		interrupMode_rising: '上升沿',
+		interrupMode_falling: '下降沿',
+		interrupMode_change: '電平改變',
+		interrupMode_low: '低電平'
     });
     return Blockly;
 }
