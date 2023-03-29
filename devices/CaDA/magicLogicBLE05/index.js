@@ -25,7 +25,7 @@ const magicLogicBLE05 = formatMessage => ({
     useAutoScan: false,
     connectionIconURL: 'asset/magicLogicBLE05-illustration.svg',
     connectionSmallIconURL: 'asset/magicLogicBLE05-small.svg',
-    programMode: ['upload'],
+    programMode: ['realtime', 'upload'],
     programLanguage: ['block', 'cpp'],
     tags: ['arduino'],
     deviceExtensions: ['arduinoMagicLogicBLE05'],
