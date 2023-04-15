@@ -24,8 +24,6 @@ function addToolbox () {
     <block type="BLE05_readDigitalPin" id="BLE05_readDigitalPin"></block>
     <block type="BLE05_readButtonState" id="BLE05_readButtonState"></block>
     <block type="BLE05_readAnalogPort" id="BLE05_readAnalogPort"></block>
-    <block type="BLE05_attachInterrupt" id="BLE05_attachInterrupt"></block>
-    <block type="BLE05_detachInterrupt" id="BLE05_detachInterrupt"></block>
 </category>
 `;
 }
