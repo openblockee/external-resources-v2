@@ -57,7 +57,7 @@ function addGenerator (Blockly) {
     Blockly.Arduino.BLE05_readButtonState  = function() {
         var pin = this.getFieldValue('PIN');
         // var code = `pinMode(${pin}, INPUT_PULLUP);\n`;
-        Blockly.Arduino.setups_[`setup_pinMode_${pin}`] = `pinMode(${pin}, INPUT_PULLUP);`;
+        // Blockly.Arduino.setups_[`setup_pinMode_${pin}`] = `pinMode(${pin}, INPUT_PULLUP);`;
         var code = `digitalRead(${pin})`;
         return [code, Blockly.Arduino.ORDER_ATOMIC];
     };
