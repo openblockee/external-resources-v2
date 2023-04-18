@@ -157,6 +157,13 @@ function addBlocks (Blockly) {
                 args0: [
                     {
                         type: 'field_dropdown',
+                        name: 'PIN',
+                        options: [
+                            [Blockly.Msg.leds_green, '13'],
+                            [Blockly.Msg.leds_blue, '8']]
+                    },
+                    {
+                        type: 'field_dropdown',
                         name: 'LEVEL',
                         options: [
                             [Blockly.Msg.levelMenu_high, 'HIGH'],

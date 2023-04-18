@@ -42,7 +42,7 @@ function addGenerator (Blockly) {
     };
 
     Blockly.Arduino.BLE05_setLEDState  = function() {
-        var pin = '13'; 
+        var pin = this.getFieldValue('PIN'); 
         var level = this.getFieldValue('LEVEL');
         var code = `digitalWrite(${pin}, ${level});\n`;
         return code;
