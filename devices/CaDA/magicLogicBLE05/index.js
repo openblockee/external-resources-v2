@@ -2,7 +2,7 @@ const magicLogicBLE05 = formatMessage => ({
     name: 'Magic Logic MASTER EDU',
     deviceId: 'magicLogicBLE05_magicLogicBLE05',
     manufactor: 'CaDA',
-    learnMore: 'http://doc.cada-e.com/doku.php?id=magiclogicmasteredu',
+    learnMore: 'http://doc.cada-e.com/doku.php?id=product_k1007cn',
     iconURL: 'asset/magicLogicBLE05.png',
     description: formatMessage({
         id: 'magicLogicBLE05.description',
@@ -32,7 +32,7 @@ const magicLogicBLE05 = formatMessage => ({
     tags: ['arduino'],
     deviceExtensions: ['arduinoMagicLogicBLE05'],
     deviceExtensionsCompatible: 'magicLogicBLE05',
-    helpLink: 'http://doc.cada-e.com/doku.php?id=magiclogicmasteredu'
+    helpLink: 'http://doc.cada-e.com/doku.php?id=product_k1007educn'
 });
 
 module.exports = magicLogicBLE05;
