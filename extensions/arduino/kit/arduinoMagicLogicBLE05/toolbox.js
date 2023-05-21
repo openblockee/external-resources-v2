@@ -25,6 +25,21 @@ function addToolbox () {
     <block type="BLE05_readButtonState" id="BLE05_readButtonState"></block>
     <block type="BLE05_readAnalogPort" id="BLE05_readAnalogPort"></block>
 </category>
+<category name="%{BKY_PASSIVEBUZZER_CATEGORY}" id="PASSIVEBUZZER_CATEGORY" colour="#B943FF" secondaryColour="#9900FF">
+    <block type="passiveBuzzer_init" id="passiveBuzzer_init"></block>
+    <block type="passiveBuzzer_playToneForBeat" id="passiveBuzzer_playToneForBeat">
+        <field name="FREQ">note_C4</field>
+    </block>
+    <block type="passiveBuzzer_setTempo" id="passiveBuzzer_setTempo">
+        <value name="BPM">
+            <shadow type="math_whole_number">
+                <field name="NUM">120</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="passiveBuzzer_playRingtone" id="passiveBuzzer_playRingtone">
+    </block>
+</category>
 `;
 }
 
