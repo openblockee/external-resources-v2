@@ -253,9 +253,9 @@ function addBlocks (Blockly) {
                         type: 'field_dropdown',
                         name: 'PIN',
                         options: [
-                            [Blockly.Msg.button_left, '4'],
+                            [Blockly.Msg.button_left, '12'],
                             [Blockly.Msg.button_center, '2'],
-                            [Blockly.Msg.button_right, '12']]
+                            [Blockly.Msg.button_right, '4']]
                     }
                 ],
                 colour: color,
