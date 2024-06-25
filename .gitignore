@@ -1,9 +1,0 @@
-# OSX
-.DS_Store
-
-# Editor
-.vscode
-
-# Build files
-translations/
-

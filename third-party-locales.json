@@ -2,11 +2,15 @@
     "en": {
         "deviceDemo.name": "Third Party Device Demo",
         "deviceDemo.description": "An example showing how to add a third-party board.",
-        "arduinoMagicLogicBLE05.description": "Classic programmable controller, has good scalability."
+        "arduinoMagicLogicBLE05.description": "Classic programmable controller, has good scalability.",
+        "lineFinderCaDA.name": "Line Finder",
+        "lineFinderCaDA.description": "Dual-path robot line patrol car application."
     },
     "zh-cn": {
         "deviceDemo.name": "第三方设备演示",
         "deviceDemo.description": "演示如何添加第三方控制板的示例。",
-        "magicLogicBLE05.description": "经典的可编程控制器, 拥有非常好的扩展性。"
+        "magicLogicBLE05.description": "经典的可编程控制器, 拥有非常好的扩展性。",
+        "lineFinderCaDA.name": "巡线模组",
+        "lineFinderCaDA.description": "双路机器人巡线小车应用。"
     }
 }

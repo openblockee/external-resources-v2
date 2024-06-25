@@ -1,7 +1,12 @@
 /* eslint-disable func-style */
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
-function addGenerator (Blockly) {
+function addGenerator(Blockly) {
+    
+    Blockly.Arduino['math_0to1000_number'] = Blockly.Arduino['math_number'];
+    Blockly.Arduino['math_unint8_number'] = Blockly.Arduino['math_number'];
+    Blockly.Arduino['math_0_0to1_0_number'] = Blockly.Arduino['math_number'];
+    Blockly.Arduino['math_n30to30number'] = Blockly.Arduino['math_number'];
 
     Blockly.Arduino.lineFinderCaDA_setDiagnosticFunctions = function (block) {
         const func = block.getFieldValue('FUNC');
@@ -286,6 +291,15 @@ if (vStepSeq == ${step}) {
         return [`fctStopAfterDist(${dist}, ${speed})`, Blockly.Arduino.ORDER_ATOMIC];
     };
 
+    Blockly.Arduino.lineFinderCaDA_actionGoForward = function () {
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctGoForward()`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
     Blockly.Arduino.lineFinderCaDA_actionGoForwardTime = function (block) {
         const time = Blockly.Arduino.valueToCode(block, 'TIME', Blockly.Arduino.ORDER_ATOMIC);
 
@@ -330,6 +344,15 @@ if (vStepSeq == ${step}) {
         Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
 
         return [`fctGoForwardDist(${dist}, ${speed})`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
+    Blockly.Arduino.lineFinderCaDA_actionGoBackward = function () {
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctGoBackward()`, Blockly.Arduino.ORDER_ATOMIC];
     };
 
     Blockly.Arduino.lineFinderCaDA_actionGoBackwardTime = function (block) {
@@ -378,6 +401,15 @@ if (vStepSeq == ${step}) {
         return [`fctGoBackwardDist(${dist}, ${speed})`, Blockly.Arduino.ORDER_ATOMIC];
     };
 
+    Blockly.Arduino.lineFinderCaDA_actionGoLeft = function () {
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctGoLeft()`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
     Blockly.Arduino.lineFinderCaDA_actionGoLeftTime = function (block) {
         const time = Blockly.Arduino.valueToCode(block, 'TIME', Blockly.Arduino.ORDER_ATOMIC);
 
@@ -422,6 +454,15 @@ if (vStepSeq == ${step}) {
         Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
 
         return [`fctGoLeftAngle(${angle}, ${speed})`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
+    Blockly.Arduino.lineFinderCaDA_actionGoRight = function () {
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctGoRight()`, Blockly.Arduino.ORDER_ATOMIC];
     };
 
     Blockly.Arduino.lineFinderCaDA_actionGoRightTime = function (block) {
@@ -515,6 +556,52 @@ if (vStepSeq == ${step}) {
         Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
 
         return [`${value}`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
+    Blockly.Arduino.lineFinderCaDA_actionSpeedUpdate = function (block) {
+        const speed = Blockly.Arduino.valueToCode(block, 'SPEED', Blockly.Arduino.ORDER_ATOMIC);
+
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctSpeedUpd(${speed})`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
+    Blockly.Arduino.lineFinderCaDA_setServoPos = function (block) {
+        const pos1 = Blockly.Arduino.valueToCode(block, 'POS1', Blockly.Arduino.ORDER_ATOMIC);
+        const pos2 = Blockly.Arduino.valueToCode(block, 'POS2', Blockly.Arduino.ORDER_ATOMIC);
+
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return `fctServoPos(${pos1}, ${pos2});\n`;
+    };
+
+    Blockly.Arduino.lineFinderCaDA_actionLoopJump = function (block) {
+        const step = Blockly.Arduino.valueToCode(block, 'STEP', Blockly.Arduino.ORDER_ATOMIC);
+        const times = Blockly.Arduino.valueToCode(block, 'TIMES', Blockly.Arduino.ORDER_ATOMIC);
+
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctLoopJump(${step}, ${times})`, Blockly.Arduino.ORDER_ATOMIC];
+    };
+
+    Blockly.Arduino.lineFinderCaDA_actionLineFinderMode = function (block) {
+        const type = Blockly.Arduino.valueToCode(block, 'TYPE', Blockly.Arduino.ORDER_ATOMIC);
+
+        delete Blockly.Arduino.includes_.arduino;
+        Blockly.Arduino.includes_['CaTurbot'] = '#include <CaTurbot.h>';
+        Blockly.Arduino.setups_.CaTurbotLFR = 'fctLFRobInit();';        
+        Blockly.Arduino.loops_.CaTurbotLFR = 'fctInputUpdate();\n  fctTaskUpdate();\n  fctDiagMsg();';
+
+        return [`fctLineFinderMode(${type})`, Blockly.Arduino.ORDER_ATOMIC];
     };
 
     return Blockly;

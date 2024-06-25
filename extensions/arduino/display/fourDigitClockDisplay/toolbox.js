@@ -33,7 +33,7 @@ function addToolbox () {
     </block>
     <block type="fourDigitClockDisplay_setBrightness" id="fourDigitClockDisplay_setBrightness">
         <value name="BRT">
-            <shadow type="fourDigitClockDisplay_brightnessNumber">
+            <fourDigitClockDisplay_brightnessNumber">
                 <field name="NUM">2</field>
             </shadow>
         </value>

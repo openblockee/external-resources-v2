@@ -294,8 +294,8 @@ function addBlocks (Blockly) {
                         type: 'field_dropdown',
                         name: 'PORT',
                         options: [
-                            ['1', '1'],
-                            ['2', '2'],
+                            ['1', 'port1'],
+                            ['2', 'port2'],
                         ]
                     },
                     {
@@ -309,6 +309,27 @@ function addBlocks (Blockly) {
                             [Blockly.Msg.LINEFINDERCADA_NONE, '0']
                         ]
                     },
+                ],
+                colour: configColour,
+                secondaryColour: configSecondaryColour,
+                extensions: ['shape_statement']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_setServoPos = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_SETSERVOPOS,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'POS1'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'POS2'
+                    }
                 ],
                 colour: configColour,
                 secondaryColour: configSecondaryColour,
@@ -586,6 +607,17 @@ function addBlocks (Blockly) {
         }
     };
 
+    Blockly.Blocks.lineFinderCaDA_actionGoForward = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONGOFORWARD,
+                colour: runColour,
+                secondaryColour: runSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
     Blockly.Blocks.lineFinderCaDA_actionGoForwardTime = {
         init: function () {
             this.jsonInit({
@@ -655,6 +687,17 @@ function addBlocks (Blockly) {
                         name: 'SPEED'
                     }
                 ],
+                colour: runColour,
+                secondaryColour: runSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_actionGoBackward = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONGOBACKWARD,
                 colour: runColour,
                 secondaryColour: runSecondaryColour,
                 extensions: ['output_boolean']
@@ -738,6 +781,17 @@ function addBlocks (Blockly) {
         }
     };
 
+    Blockly.Blocks.lineFinderCaDA_actionGoLeft = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONGOLEFT,
+                colour: runColour,
+                secondaryColour: runSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
     Blockly.Blocks.lineFinderCaDA_actionGoLeftTime = {
         init: function () {
             this.jsonInit({
@@ -807,6 +861,17 @@ function addBlocks (Blockly) {
                         name: 'SPEED'
                     }
                 ],
+                colour: runColour,
+                secondaryColour: runSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_actionGoRight = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONGORIGHT,
                 colour: runColour,
                 secondaryColour: runSecondaryColour,
                 extensions: ['output_boolean']
@@ -936,7 +1001,7 @@ function addBlocks (Blockly) {
                         options: [
                             ['1', 'port1'],
                             ['2', 'port2'],
-                            ['1+2', 'port5']
+                            ['1+2', 'portD']
                         ]
                     },
                     {
@@ -976,6 +1041,61 @@ function addBlocks (Blockly) {
                             ['0', '0'],
                             ['1', '1']
                         ]
+                    }
+                ],
+                colour: actionColour,
+                secondaryColour: actionSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_actionSpeedUpdate = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONSPEEDUPDATE,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'SPEED'
+                    }
+                ],
+                colour: actionColour,
+                secondaryColour: actionSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_actionLoopJump = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONLOOPJUMP,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'STEP'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'TIMES'
+                    }
+                ],
+                colour: actionColour,
+                secondaryColour: actionSecondaryColour,
+                extensions: ['output_boolean']
+            });
+        }
+    };
+
+    Blockly.Blocks.lineFinderCaDA_actionLineFinderMode = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.LINEFINDERCADA_ACTIONLINEFINDERMODE,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'TYPE'
                     }
                 ],
                 colour: actionColour,

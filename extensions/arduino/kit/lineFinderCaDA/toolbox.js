@@ -103,6 +103,18 @@ function addToolbox () {
         </value>
     </block>
     <block type="lineFinderCaDA_setPortConnection" id="lineFinderCaDA_setPortConnection"></block>
+    <block type="lineFinderCaDA_setServoPos" id="lineFinderCaDA_setServoPos">
+        <value name="POS1">
+            <shadow type="math_angle">
+                <field name="NUM">0</field>
+            </shadow>
+        </value>
+        <value name="POS2">
+            <shadow type="math_angle">
+                <field name="NUM">0</field>
+            </shadow>
+        </value>
+    </block>
     <sep gap="36"/>
     <block type="lineFinderCaDA_task" id="lineFinderCaDA_task" />
     <block type="lineFinderCaDA_stepAction" id="lineFinderCaDA_stepAction">
@@ -165,6 +177,8 @@ function addToolbox () {
     </block>
 </category>
 <category name="%{BKY_LINEFINDERCADA_CATEGORY_RUN}" id="BKY_LINEFINDERCADA_CATEGORY_RUN" colour="#92D050" secondaryColour="#86BF49">
+    <block type="lineFinderCaDA_actionGoForward" id="lineFinderCaDA_actionGoForward">
+    </block>
     <block type="lineFinderCaDA_actionGoForwardTime" id="lineFinderCaDA_actionGoForwardTime">
         <value name="TIME">
             <shadow type="math_positive_number">
@@ -202,6 +216,8 @@ function addToolbox () {
                 <field name="NUM">5</field>
             </shadow>
         </value>
+    </block>
+    <block type="lineFinderCaDA_actionGoBackward" id="lineFinderCaDA_actionGoBackward">
     </block>
     <block type="lineFinderCaDA_actionGoBackwardTime" id="lineFinderCaDA_actionGoBackwardTime">
         <value name="TIME">
@@ -241,6 +257,8 @@ function addToolbox () {
             </shadow>
         </value>
     </block>
+    <block type="lineFinderCaDA_actionGoLeft" id="lineFinderCaDA_actionGoLeft">
+    </block>
     <block type="lineFinderCaDA_actionGoLeftTime" id="lineFinderCaDA_actionGoLeftTime">
         <value name="TIME">
             <shadow type="math_positive_number">
@@ -278,6 +296,8 @@ function addToolbox () {
                 <field name="NUM">5</field>
             </shadow>
         </value>
+    </block>
+    <block type="lineFinderCaDA_actionGoRight" id="lineFinderCaDA_actionGoRight">
     </block>
     <block type="lineFinderCaDA_actionGoRightTime" id="lineFinderCaDA_actionGoRightTime">
         <value name="TIME">
@@ -329,11 +349,39 @@ function addToolbox () {
     <block type="lineFinderCaDA_actionWaitAck" id="lineFinderCaDA_actionWaitAck"></block>
     <block type="lineFinderCaDA_actionMultiPortAct" id="lineFinderCaDA_actionMultiPortAct">
         <value name="LEVEL">
-            <shadow type="lineFinderCaDA_level" />
+            <shadow type="math_positive_number">
+                <field name="NUM">0</field>
+            </shadow>
         </value>
         <value name="TIME">
             <shadow type="math_positive_number">
                 <field name="NUM">2</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="lineFinderCaDA_actionLoopJump" id="lineFinderCaDA_actionLoopJump">
+        <value name="STEP">
+            <shadow type="math_positive_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+        <value name="TIMES">
+            <shadow type="math_positive_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="lineFinderCaDA_actionLineFinderMode" id="lineFinderCaDA_actionLineFinderMode">
+        <value name="TYPE">
+            <shadow type="math_positive_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="lineFinderCaDA_actionSpeedUpdate" id="lineFinderCaDA_actionSpeedUpdate">
+        <value name="SPEED">
+            <shadow type="math_positive_number">
+                <field name="NUM">0</field>
             </shadow>
         </value>
     </block>
